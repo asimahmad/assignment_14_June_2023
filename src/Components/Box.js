@@ -11,9 +11,6 @@ export default function Box({unique, setCancelCard}) {
         setInput(message)
         setMessage('')
     }
-    function handleCancel(e){
-        console.log(e)
-    }
   return (
         <div className='box-card'>
             <button className='cancel' onClick={()=>setCancelCard(unique)}>X</button>

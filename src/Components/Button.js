@@ -1,5 +1,6 @@
 import React, { useEffect, useState,useContext } from 'react'
 import Box from './Box'
+import InputContext from './inputContext'
 
 export default function Button() {
     const style = {
@@ -11,7 +12,7 @@ export default function Button() {
         'margin': '10px',
         'fontSize':'20px',
     }
-
+    const {input, setInput} = useContext(InputContext);
     const [box,setBox] = useState([]);
 
     function handleButton(){
@@ -20,6 +21,7 @@ export default function Button() {
 
     function setCancelCard(unique){
       setBox([...box.slice(0,unique), ...box.slice(unique+1,box.length)])
+      box.length<2 && setInput('')
     }
 
   return (
